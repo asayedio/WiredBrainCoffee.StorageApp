@@ -4,7 +4,7 @@ using WiredBrainCoffee.StorageApp.Entities;
 
 namespace WiredBrainCoffee.StorageApp.Repositories
 {
-    public class GenericRepository<T> where T : IEntity
+    public class SqlRepository<T> where T : IEntity
     {
         private readonly List<T> _itmes = new();
         public void Add(T item)
