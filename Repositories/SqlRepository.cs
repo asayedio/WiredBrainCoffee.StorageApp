@@ -5,7 +5,7 @@ using WiredBrainCoffee.StorageApp.Entities;
 
 namespace WiredBrainCoffee.StorageApp.Repositories
 {
-    public class SqlRepository<T> where T : class, IEntity
+    public class SqlRepository<T> : IRepository<T> where T : class, IEntity
     {
         private readonly DbContext _dbContext;
         private readonly DbSet<T> _dbSet;
@@ -21,7 +21,7 @@ namespace WiredBrainCoffee.StorageApp.Repositories
             {
                 _dbSet.Add(item);
             }
-                
+
         }
         public T GetById(int Id)
         {
