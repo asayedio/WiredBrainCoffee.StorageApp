@@ -32,6 +32,10 @@ namespace WiredBrainCoffee.StorageApp.Repositories
             if (item != null)
                 _dbSet.Remove(item);
         }
+        public IEnumerable<T> GetAll()
+        {
+            return _dbSet.ToList();
+        }
         public void Save()
         {
             _dbContext.SaveChanges();

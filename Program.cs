@@ -12,6 +12,7 @@ namespace WiredBrainCoffee.StorageApp
             var employeeRepository = new SqlRepository<Employee>(new StorageAppDbContext());
             AddEmployees(employeeRepository);
             GetEmployeeById(employeeRepository);
+            GetAll(employeeRepository);
 
             var organizationRepository = new ListRepository<Organization>();
             AddOrganizations(organizationRepository);
@@ -24,6 +25,14 @@ namespace WiredBrainCoffee.StorageApp
             Console.WriteLine($"The employee Id: {employee.Id} & first name is: {employee.FirstName}");
         }
 
+        private static void GetAll(IRepository<Employee> employeeRepository)
+        {
+            var employees = employeeRepository.GetAll();
+            foreach (var employee in employees)
+            {
+                Console.WriteLine(employee);
+            }   
+        }
         private static void AddEmployees(IRepository<Employee> employeeRepository)
         {
             employeeRepository.Add(new Employee { FirstName = "Ahmed" });
